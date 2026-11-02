@@ -1,0 +1,9 @@
+# 저장소에는 LF로 저장 (Windows/Mac 혼용 시 줄바꿈 때문에 파일 전체가 바뀐 것처럼 보이는 문제 방지)
+* text=auto
+
+# Gradle wrapper 스크립트
+/gradlew        text eol=lf
+*.bat           text eol=crlf
+
+# 바이너리
+*.jar           binary

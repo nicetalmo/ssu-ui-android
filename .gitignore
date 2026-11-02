@@ -1,0 +1,33 @@
+# Gradle
+.gradle/
+build/
+.kotlin/
+
+# 로컬 설정 (SDK 경로 등 PC마다 다름)
+local.properties
+
+# Android Studio / IntelliJ (각자 PC에서 자동 생성됨)
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 빌드 결과물
+*.apk
+*.aab
+output-metadata.json
+app/release/
+
+# 서명 키
+*.jks
+*.keystore
+
+# 로그 / 프로파일링
+*.log
+*.hprof
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
