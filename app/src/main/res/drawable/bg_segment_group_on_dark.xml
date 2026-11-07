@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Queue Status Toggle 바탕: 흰색 10%, 모서리 12dp. 레이아웃에 padding 4dp, 두 칸 사이 간격 4dp -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/radius_lg" />
+    <solid android:color="@color/on_dark_overlay" />
+</shape>

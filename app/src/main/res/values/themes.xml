@@ -1,8 +1,61 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.SSUUI" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Base application theme. 마음대기 디자인은 라이트 모드 하나 (어두운 화면은 Alert 색으로 직접 칠함) -->
+    <style name="Base.Theme.SSUUI" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Color Tokens → Material 3 색 역할 (기본 위젯이 디자인 색을 따라가도록) -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/on_primary_container</item>
+        <item name="colorSecondary">@color/primary</item>
+        <item name="colorOnSecondary">@color/on_primary</item>
+        <item name="colorSecondaryContainer">@color/primary_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_primary_container</item>
+        <item name="colorTertiary">@color/accent</item>
+        <item name="colorOnTertiary">@color/on_accent</item>
+        <item name="colorTertiaryContainer">@color/accent_container</item>
+        <item name="colorOnTertiaryContainer">@color/on_accent_container</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/on_error</item>
+        <item name="colorErrorContainer">@color/error_container</item>
+        <item name="colorOnErrorContainer">@color/on_error_container</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorOnBackground">@color/on_surface</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSurfaceVariant">@color/surface_container</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorSurfaceContainer">@color/surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_container_high</item>
+        <item name="colorSurfaceInverse">@color/inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/inverse_on_surface</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorOutlineVariant">@color/outline_variant</item>
+
+        <!-- Typography → Material 3 글자 역할 -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.Maeum.DisplayTicket</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.Maeum.DisplayNumber</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Maeum.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Maeum.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Maeum.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Maeum.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Maeum.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.Maeum.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Maeum.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Maeum.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Maeum.Caption</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Maeum.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Maeum.LabelSmall</item>
+
+        <!-- style 을 따로 주지 않았을 때 쓰는 기본 컴포넌트 모양 -->
+        <item name="android:textViewStyle">@style/Widget.Maeum.TextView</item>
+        <item name="materialButtonStyle">@style/Widget.Maeum.Button.Filled</item>
+        <item name="chipStyle">@style/Widget.Maeum.Chip.Filter</item>
+        <item name="materialSwitchStyle">@style/Widget.Maeum.Switch</item>
+        <item name="checkboxStyle">@style/Widget.Maeum.CheckBox</item>
+        <item name="textInputStyle">@style/Widget.Maeum.TextField</item>
+        <item name="materialCardViewStyle">@style/Widget.Maeum.Card.Outlined</item>
+        <item name="toolbarStyle">@style/Widget.Maeum.TopAppBar</item>
     </style>
 
     <style name="Theme.SSUUI" parent="Base.Theme.SSUUI" />

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Components (Figma: Design System · Components)
+        사용 예는 각 스타일 위 주석 참고. 기능(클릭·데이터 연결)은 코드에서.
+    -->
+
+    <!--
+        아무 스타일 없는 TextView 의 기본값: Body/Large · on-surface (테마의 android:textViewStyle)
+        Noto Sans KR 은 위아래 여백이 커서 includeFontPadding 을 끔 (줄 높이는 TextAppearance 의 lineHeight 로)
+    -->
+    <style name="Widget.Maeum.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.BodyLarge</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!--
+        Status Tag (높이 28dp · 점 8dp + Label/Small · 모서리 4dp)
+        <TextView style="@style/Widget.Maeum.StatusTag.Success" android:text="입장 완료" />
+    -->
+    <style name="Widget.Maeum.StatusTag" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:drawableStart">@drawable/dot_status</item>
+        <item name="android:drawablePadding">6dp</item>
+        <item name="android:background">@drawable/bg_tag</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelSmall</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Widget.Maeum.StatusTag.Neutral">
+        <item name="android:backgroundTint">@color/surface_container</item>
+        <item name="android:drawableTint">@color/outline</item>
+        <item name="android:textColor">@color/on_surface_variant</item>
+    </style>
+
+    <style name="Widget.Maeum.StatusTag.Info">
+        <item name="android:backgroundTint">@color/primary_container</item>
+        <item name="android:drawableTint">@color/primary</item>
+        <item name="android:textColor">@color/on_primary_container</item>
+    </style>
+
+    <style name="Widget.Maeum.StatusTag.Success">
+        <item name="android:backgroundTint">@color/success_container</item>
+        <item name="android:drawableTint">@color/success</item>
+        <item name="android:textColor">@color/on_success_container</item>
+    </style>
+
+    <style name="Widget.Maeum.StatusTag.Warning">
+        <item name="android:backgroundTint">@color/accent_container</item>
+        <item name="android:drawableTint">@color/accent</item>
+        <item name="android:textColor">@color/on_accent_container</item>
+    </style>
+
+    <style name="Widget.Maeum.StatusTag.Error">
+        <item name="android:backgroundTint">@color/error_container</item>
+        <item name="android:drawableTint">@color/error</item>
+        <item name="android:textColor">@color/on_error_container</item>
+    </style>
+
+    <!-- 「대표」 배지 (메뉴 카드) · <TextView style="@style/Widget.Maeum.Badge" android:text="대표" /> -->
+    <style name="Widget.Maeum.Badge" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingStart">6dp</item>
+        <item name="android:paddingEnd">6dp</item>
+        <item name="android:background">@drawable/bg_tag</item>
+        <item name="android:backgroundTint">@color/primary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.Caption</item>
+        <item name="android:textColor">@color/on_primary</item>
+    </style>
+
+    <!-- 「광고」 표시 · <TextView style="@style/Widget.Maeum.AdLabel" android:text="광고" /> -->
+    <style name="Widget.Maeum.AdLabel" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:background">@drawable/bg_ad_label</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.Caption</item>
+        <item name="android:textColor">@color/on_surface_variant</item>
+    </style>
+
+    <!--
+        Chip · Filter (높이 40dp · 모서리 8dp · 아이콘 18dp)
+        선택 On: primary-container + 체크 / Off: 흰 배경 + outline 테두리
+        <com.google.android.material.chip.Chip style="@style/Widget.Maeum.Chip.Filter"
+            android:text="2명" app:chipIcon="@drawable/ic_group" />
+    -->
+    <style name="Widget.Maeum.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipMinHeight">40dp</item>
+        <item name="chipCornerRadius">@dimen/radius_md</item>
+        <item name="chipBackgroundColor">@color/chip_filter_container</item>
+        <item name="chipStrokeColor">@color/chip_filter_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelSmall</item>
+        <item name="android:textColor">@color/chip_filter_content</item>
+        <item name="chipIconSize">18dp</item>
+        <item name="chipIconTint">@color/chip_filter_content</item>
+        <item name="checkedIcon">@drawable/ic_check</item>
+        <item name="checkedIconTint">@color/on_primary_container</item>
+        <item name="checkedIconVisible">true</item>
+        <item name="chipStartPadding">12dp</item>
+        <item name="iconStartPadding">0dp</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="textStartPadding">8dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="chipEndPadding">16dp</item>
+    </style>
+
+    <!-- Chip · Assist (surface-container 배경 · primary 아이콘 · 선택 없음) -->
+    <style name="Widget.Maeum.Chip.Assist" parent="Widget.Material3.Chip.Assist">
+        <item name="chipMinHeight">40dp</item>
+        <item name="chipCornerRadius">@dimen/radius_md</item>
+        <item name="chipBackgroundColor">@color/surface_container</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelSmall</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="chipIconSize">18dp</item>
+        <item name="chipIconTint">@color/primary</item>
+        <item name="chipStartPadding">12dp</item>
+        <item name="iconStartPadding">0dp</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="textStartPadding">8dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="chipEndPadding">16dp</item>
+    </style>
+
+    <!--
+        지도 매장 마커 (Figma: C1-1 · Marker) · 캡슐 34dp · 가게 아이콘 16dp · 그림자
+        <com.google.android.material.chip.Chip style="@style/Widget.Maeum.MapMarker"
+            android:text="성수동 파스타 · 12팀" />
+    -->
+    <style name="Widget.Maeum.MapMarker" parent="Widget.Material3.Chip.Assist">
+        <item name="chipMinHeight">34dp</item>
+        <item name="chipCornerRadius">@dimen/radius_full</item>
+        <item name="chipBackgroundColor">@color/surface</item>
+        <item name="chipStrokeColor">@color/outline_variant</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipIcon">@drawable/ic_store</item>
+        <item name="chipIconVisible">true</item>
+        <item name="chipIconSize">16dp</item>
+        <item name="chipIconTint">@color/primary</item>
+        <item name="chipStartPadding">8dp</item>
+        <item name="iconStartPadding">0dp</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="textStartPadding">4dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="chipEndPadding">10dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelSmall</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:elevation">3dp</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+    <!-- 선택된 마커 (primary 배경) -->
+    <style name="Widget.Maeum.MapMarker.Selected">
+        <item name="chipBackgroundColor">@color/primary</item>
+        <item name="chipStrokeColor">@color/primary</item>
+        <item name="chipIconTint">@color/on_primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+    </style>
+
+    <!-- 광고 마커 (광고 있는 요금제) -->
+    <style name="Widget.Maeum.MapMarker.Ad">
+        <item name="chipBackgroundColor">@color/ad_ssu_navy</item>
+        <item name="chipIconTint">@color/on_primary</item>
+        <item name="android:textColor">@color/on_primary</item>
+    </style>
+
+    <!--
+        순서 도달 화면의 알림 상태 pill (Figma: C6 · 다감각 알림 상태) · 어두운 배경 위
+        <com.google.android.material.chip.Chip style="@style/Widget.Maeum.AlarmPill"
+            android:text="진동 중" app:chipIcon="@drawable/ic_vibration" />
+    -->
+    <style name="Widget.Maeum.AlarmPill" parent="Widget.Material3.Chip.Assist">
+        <item name="chipMinHeight">36dp</item>
+        <item name="chipCornerRadius">@dimen/radius_md</item>
+        <item name="chipBackgroundColor">@color/on_dark_pill</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
+        <item name="chipStrokeColor">@color/on_dark_pill_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipIconVisible">true</item>
+        <item name="chipIconSize">18dp</item>
+        <item name="chipIconTint">@color/glow</item>
+        <item name="chipStartPadding">10dp</item>
+        <item name="iconStartPadding">0dp</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="textStartPadding">6dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="chipEndPadding">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelSmall</item>
+        <item name="android:textColor">@color/on_dark</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+    <!-- 「내 순서예요!」 배지 (Figma: C6 · Your turn) · glow 배경 · 알림 아이콘 22dp -->
+    <style name="Widget.Maeum.TurnBadge" parent="Widget.Material3.Chip.Assist">
+        <item name="chipMinHeight">40dp</item>
+        <item name="chipCornerRadius">@dimen/radius_md</item>
+        <item name="chipBackgroundColor">@color/glow</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipIcon">@drawable/ic_notify</item>
+        <item name="chipIconVisible">true</item>
+        <item name="chipIconSize">22dp</item>
+        <item name="chipIconTint">@color/dark_bg</item>
+        <item name="chipStartPadding">14dp</item>
+        <item name="iconStartPadding">0dp</item>
+        <item name="iconEndPadding">0dp</item>
+        <item name="textStartPadding">6dp</item>
+        <item name="textEndPadding">0dp</item>
+        <item name="chipEndPadding">18dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelLarge</item>
+        <item name="android:textColor">@color/dark_bg</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+    <!--
+        Switch (52×32dp · On: primary 트랙 + 체크 / Off: 연회색 트랙 + outline)
+        <com.google.android.material.materialswitch.MaterialSwitch ... />  (테마 기본값이라 style 생략 가능)
+    -->
+    <style name="Widget.Maeum.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+        <item name="trackDecorationTint">@color/switch_track_decoration</item>
+        <item name="thumbIcon">@drawable/ic_switch_thumb_check</item>
+        <item name="thumbIconTint">@color/switch_thumb_icon</item>
+    </style>
+
+    <!-- Checkbox (상자 20dp · 모서리 2dp · 터치 영역 48dp) · 테마 기본값 -->
+    <style name="Widget.Maeum.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/checkbox_button</item>
+        <item name="android:minWidth">@dimen/touch_target_min</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.BodyLarge</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <!--
+        Text Field (Figma: Text Field) · 라벨은 입력창 위에 따로
+        <TextView style="@style/Widget.Maeum.TextField.Label" android:text="휴대전화 번호" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:helperText="순서 알림에만 써요">   (오류: setError("..."), 단위: app:suffixText="팀")
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent" android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        (TextInputLayout 은 테마 기본값이 이 스타일이라 style 생략 가능)
+    -->
+    <style name="Widget.Maeum.TextField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="hintEnabled">false</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_md</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_md</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_md</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_md</item>
+        <item name="boxBackgroundColor">@color/surface</item>
+        <item name="boxStrokeColor">@color/text_field_stroke</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxStrokeErrorColor">@color/error</item>
+        <item name="errorTextColor">@color/error</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="errorTextAppearance">@style/TextAppearance.Maeum.BodyMedium</item>
+        <item name="helperTextTextAppearance">@style/TextAppearance.Maeum.BodyMedium</item>
+        <item name="helperTextTextColor">@color/on_surface_variant</item>
+        <item name="startIconTint">@color/on_surface_variant</item>
+        <item name="endIconTint">@color/on_surface_variant</item>
+        <item name="suffixTextAppearance">@style/TextAppearance.Maeum.BodyLarge</item>
+        <item name="suffixTextColor">@color/on_surface_variant</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Maeum.TextField</item>
+    </style>
+
+    <style name="ThemeOverlay.Maeum.TextField" parent="">
+        <item name="editTextStyle">@style/Widget.Maeum.TextField.EditText</item>
+    </style>
+
+    <!-- 입력값: Body/Large · 안쪽 여백 16dp -->
+    <style name="Widget.Maeum.TextField.EditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.BodyLarge</item>
+        <item name="android:textColor">@color/on_surface</item>
+        <item name="android:textColorHint">@color/on_surface_variant</item>
+    </style>
+
+    <!-- 입력창 위 라벨: Title/Small (포커스 때 primary, 오류 때 error 색은 코드에서) -->
+    <style name="Widget.Maeum.TextField.Label" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.TitleSmall</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <!--
+        Card (MaterialCardView) · 모서리 12dp · 안쪽 여백 16dp
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.Maeum.Card.Outlined" ...>
+        Outlined: Queue Card(대기) · Notice Card(Neutral) · 추천 카드 · 메뉴 카드 · Stepper 바탕
+        Elevated: History Card (Elevation/1 그림자)
+    -->
+    <style name="Widget.Maeum.Card.Outlined" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="strokeColor">@color/outline_variant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Queue Card · Called (호출됨): accent 2dp 테두리 -->
+    <style name="Widget.Maeum.Card.Outlined.Called">
+        <item name="strokeColor">@color/accent</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <!-- Queue Card · Delayed (지연): error 2dp 테두리 -->
+    <style name="Widget.Maeum.Card.Outlined.Delayed">
+        <item name="strokeColor">@color/error</item>
+        <item name="strokeWidth">2dp</item>
+    </style>
+
+    <style name="Widget.Maeum.Card.Elevated" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardElevation">@dimen/elevation_1</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Notice Card (아이콘 24dp + Title/Medium 제목 + Body/Large 내용). Neutral 은 Card.Outlined -->
+    <style name="Widget.Maeum.Card.Notice" parent="Widget.Material3.CardView.Filled">
+        <item name="cardCornerRadius">@dimen/radius_lg</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Info: 글자·아이콘은 on_primary_container / 아이콘 primary -->
+    <style name="Widget.Maeum.Card.Notice.Info">
+        <item name="cardBackgroundColor">@color/primary_container</item>
+    </style>
+
+    <!-- Success: 글자 on_success_container / 아이콘 success -->
+    <style name="Widget.Maeum.Card.Notice.Success">
+        <item name="cardBackgroundColor">@color/success_container</item>
+    </style>
+
+    <!-- Warning: 글자 on_accent_container / 아이콘 accent -->
+    <style name="Widget.Maeum.Card.Notice.Warning">
+        <item name="cardBackgroundColor">@color/accent_container</item>
+    </style>
+
+    <!-- Error: 글자 on_error_container / 아이콘 error -->
+    <style name="Widget.Maeum.Card.Notice.Error">
+        <item name="cardBackgroundColor">@color/error_container</item>
+    </style>
+
+    <!--
+        Top App Bar (높이 64dp · 제목 Title/Large) · 테마 기본값
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent" android:layout_height="@dimen/top_app_bar_height"
+            app:navigationIcon="@drawable/ic_arrow_back" app:title="화면 제목" />
+    -->
+    <style name="Widget.Maeum.TopAppBar" parent="Widget.Material3.Toolbar">
+        <item name="android:minHeight">@dimen/top_app_bar_height</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Maeum.TitleLarge</item>
+        <item name="titleTextColor">@color/on_surface</item>
+        <item name="navigationIconTint">@color/on_surface</item>
+        <item name="contentInsetStartWithNavigation">56dp</item>
+    </style>
+
+    <!--
+        순서 도달 카운트다운 링 (Figma: C6 · Countdown ring) · 지름 240dp · 두께 14dp
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            style="@style/Widget.Maeum.CountdownRing" android:max="180" />  (남은 초를 setProgress)
+    -->
+    <style name="Widget.Maeum.CountdownRing" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorSize">240dp</item>
+        <item name="trackThickness">14dp</item>
+        <item name="indicatorInset">0dp</item>
+        <item name="indicatorColor">@color/glow</item>
+        <item name="trackColor">@color/on_dark_overlay</item>
+        <item name="indicatorDirectionCircular">clockwise</item>
+    </style>
+</resources>

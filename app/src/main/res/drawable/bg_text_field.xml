@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    입력창 바탕 (일반 EditText 용): 평소 outline 1dp / 포커스 primary 2dp, 모서리 8dp
+    오류 표시까지 필요하면 TextInputLayout + @style/Widget.Maeum.TextField 를 쓰세요
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/radius_md" />
+            <solid android:color="@color/surface" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/primary" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/radius_md" />
+            <solid android:color="@color/surface" />
+            <stroke
+                android:width="1dp"
+                android:color="@color/outline" />
+        </shape>
+    </item>
+</selector>

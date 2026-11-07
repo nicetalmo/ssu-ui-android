@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QR 스캔 창 왼쪽 위 모서리 (44dp · 두께 5dp · 바깥 반경 12dp). 나머지 모서리는 img_qr_scan_frame 에서 돌려서 사용 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="44dp"
+    android:height="44dp"
+    android:viewportWidth="44"
+    android:viewportHeight="44">
+    <path
+        android:pathData="M2.5,44L2.5,12A9.5,9.5 0,0 1,12 2.5L44,2.5"
+        android:strokeWidth="5"
+        android:strokeColor="@color/on_dark" />
+</vector>

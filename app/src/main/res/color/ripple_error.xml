@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Error Text 버튼의 누름 효과 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/error" android:alpha="0.12" />
+</selector>

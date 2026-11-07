@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 바텀시트 바탕 (주변 매장 지도): 흰 배경, 위쪽 모서리 20dp. 손잡이는 @drawable/bg_sheet_handle -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners
+        android:topLeftRadius="@dimen/radius_sheet"
+        android:topRightRadius="@dimen/radius_sheet" />
+    <solid android:color="@color/surface" />
+</shape>

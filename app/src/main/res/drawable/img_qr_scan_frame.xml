@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    QR 스캔 창 네 모서리 (Figma: C2 · Corner TL/TR/BL/BR)
+    스캔 창(260×260dp) 크기의 View 에 background/src 로 두면 모서리 44dp 표시가 네 귀퉁이에 붙음
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="44dp"
+        android:height="44dp"
+        android:drawable="@drawable/img_qr_scan_corner"
+        android:gravity="top|left" />
+    <item
+        android:width="44dp"
+        android:height="44dp"
+        android:gravity="top|right">
+        <rotate
+            android:drawable="@drawable/img_qr_scan_corner"
+            android:fromDegrees="90"
+            android:toDegrees="90" />
+    </item>
+    <item
+        android:width="44dp"
+        android:height="44dp"
+        android:gravity="bottom|right">
+        <rotate
+            android:drawable="@drawable/img_qr_scan_corner"
+            android:fromDegrees="180"
+            android:toDegrees="180" />
+    </item>
+    <item
+        android:width="44dp"
+        android:height="44dp"
+        android:gravity="bottom|left">
+        <rotate
+            android:drawable="@drawable/img_qr_scan_corner"
+            android:fromDegrees="270"
+            android:toDegrees="270" />
+    </item>
+</layer-list>

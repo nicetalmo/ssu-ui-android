@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 어두운 바탕 위 버튼의 누름 효과 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/on_dark" android:alpha="0.16" />
+</selector>

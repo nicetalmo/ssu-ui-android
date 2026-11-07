@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Noto Sans KR 700 (Google Fonts 다운로드 폰트) -->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:fontProviderAuthority="com.google.android.gms.fonts"
+    app:fontProviderCerts="@array/com_google_android_gms_fonts_certs"
+    app:fontProviderPackage="com.google.android.gms"
+    app:fontProviderQuery="name=Noto Sans KR&amp;weight=700">
+</font-family>

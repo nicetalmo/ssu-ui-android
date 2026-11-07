@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    순서 도달 화면 발광 (Figma: C6 · Screen Glow)
+    화면 전체를 덮는 View 의 background 로 두고, 0.8초 간격으로 alpha 를 깜빡이게 하면 됨
+    위·아래 150dp, 좌·우 110dp 그라디언트 (glow 50% → 0%) + 가장자리 4dp 테두리
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:gravity="top|fill_horizontal"
+        android:height="150dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="270"
+                android:endColor="@color/glow_overlay_end"
+                android:startColor="@color/glow_overlay_start" />
+        </shape>
+    </item>
+    <item
+        android:gravity="bottom|fill_horizontal"
+        android:height="150dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:endColor="@color/glow_overlay_end"
+                android:startColor="@color/glow_overlay_start" />
+        </shape>
+    </item>
+    <item
+        android:gravity="left|fill_vertical"
+        android:width="110dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="0"
+                android:endColor="@color/glow_overlay_end"
+                android:startColor="@color/glow_overlay_start" />
+        </shape>
+    </item>
+    <item
+        android:gravity="right|fill_vertical"
+        android:width="110dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="180"
+                android:endColor="@color/glow_overlay_end"
+                android:startColor="@color/glow_overlay_start" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="4dp"
+                android:color="@color/glow" />
+        </shape>
+    </item>
+</layer-list>

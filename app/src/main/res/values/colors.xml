@@ -2,4 +2,67 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- 마음대기 Color Tokens (Figma: Design System · Color Tokens). 이름은 Figma 토큰과 같음(- → _) -->
+
+    <!-- Brand -->
+    <color name="primary">#3451D1</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#DEE4FF</color>
+    <color name="on_primary_container">#0E2178</color>
+
+    <!-- Accent -->
+    <color name="accent">#C2410C</color>
+    <color name="on_accent">#FFFFFF</color>
+    <color name="accent_container">#FFE8D9</color>
+    <color name="on_accent_container">#6A1F00</color>
+
+    <!-- Success -->
+    <color name="success">#2B7A3D</color>
+    <color name="on_success">#FFFFFF</color>
+    <color name="success_container">#D7F5DD</color>
+    <color name="on_success_container">#0F4A1E</color>
+
+    <!-- Error -->
+    <color name="error">#C62828</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="error_container">#FFE1DE</color>
+    <color name="on_error_container">#7A1212</color>
+
+    <!-- Surface -->
+    <color name="background">#F5F6FA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_container">#EEF0F6</color>
+    <color name="surface_container_high">#E5E8F0</color>
+    <color name="inverse_surface">#1E2230</color>
+    <color name="inverse_on_surface">#F1F2F7</color>
+    <color name="scrim">#80000000</color> <!-- 모달 배경 오버레이 (검정 50%) -->
+
+    <!-- Content -->
+    <color name="on_surface">#181B23</color>
+    <color name="on_surface_variant">#4B5162</color>
+    <color name="outline">#767C8C</color>
+    <color name="outline_variant">#D6DAE3</color>
+
+    <!-- Alert (Dark): 순서 도달 화면 -->
+    <color name="glow">#FF7A1A</color>
+    <color name="dark_bg">#10121A</color>
+    <color name="dark_surface">#1C1F2A</color>
+    <color name="on_dark">#FFFFFF</color>
+    <color name="on_dark_variant">#B9BFCE</color>
+    <color name="warning_on_dark">#FF8A75</color>
+
+    <!-- 컴포넌트에서 쓰는 반투명 색 -->
+    <color name="disabled_container">#1F181B23</color> <!-- on_surface 12%: 비활성 버튼 배경 -->
+    <color name="disabled_content">#61181B23</color> <!-- on_surface 38%: 비활성 글자·아이콘 -->
+    <color name="on_dark_overlay">#1AFFFFFF</color> <!-- 흰색 10%: 대기 상태 토글 바탕, 카운트다운 트랙 -->
+    <color name="on_dark_pill">#14FFFFFF</color> <!-- 흰색 8%: 알림 상태 pill 배경 -->
+    <color name="on_dark_pill_stroke">#2EFFFFFF</color> <!-- 흰색 18%: 알림 상태 pill 테두리 -->
+    <color name="qr_scan_dim">#AD000000</color> <!-- 검정 68%: QR 스캔 창 바깥 -->
+    <color name="qr_scan_line">#9DB4FF</color>
+    <color name="qr_scan_line_fade">#009DB4FF</color> <!-- 스캔 라인 양 끝 (투명) -->
+    <color name="glow_overlay_start">#80FF7A1A</color> <!-- glow 50%: 화면 발광 가장자리 -->
+    <color name="glow_overlay_end">#00FF7A1A</color> <!-- glow 0% -->
+    <color name="my_location_halo">#263451D1</color> <!-- primary 15%: 지도 내 위치 범위 -->
+    <color name="ad_ssu_navy">#0E3278</color> <!-- 광고(숭실대학교) 지도 마커 -->
 </resources>

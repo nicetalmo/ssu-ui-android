@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Queue Status Toggle · 「일시중단」 배경 (선택된 쪽만 칠함) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:color="@color/error" />
+    <item android:color="@android:color/transparent" />
+</selector>

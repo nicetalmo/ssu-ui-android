@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Button (Figma: Components · Button / Icon Button)
+        사용: <Button style="@style/Widget.Maeum.Button.Tonal" android:text="..." />
+        아이콘: app:icon="@drawable/ic_add"  (아이콘은 글자 왼쪽, 간격 8dp)
+        크기: 기본은 Large(높이 56dp), 이름 끝에 .Medium 을 붙이면 Medium(높이 48dp)
+        아무 style 없이 <Button> 을 쓰면 Filled · Large (테마 기본값)
+    -->
+
+    <!-- 공통 크기 · Large: 높이 56dp · 좌우 24dp · Label/Large · 아이콘 24dp · 모서리 8dp -->
+    <style name="Widget.Maeum.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/button_height_large</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelLarge</item>
+        <item name="iconSize">@dimen/icon_size</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <!-- Filled · primary 배경 / 흰 글자 -->
+    <style name="Widget.Maeum.Button.Filled">
+        <item name="backgroundTint">@color/button_filled_container</item>
+        <item name="android:textColor">@color/button_filled_content</item>
+        <item name="iconTint">@color/button_filled_content</item>
+    </style>
+
+    <!-- Tonal · primary-container 배경 / on-primary-container 글자 -->
+    <style name="Widget.Maeum.Button.Tonal">
+        <item name="backgroundTint">@color/button_tonal_container</item>
+        <item name="android:textColor">@color/button_tonal_content</item>
+        <item name="iconTint">@color/button_tonal_content</item>
+        <item name="rippleColor">@color/ripple_neutral</item>
+    </style>
+
+    <!-- Accent · accent 배경 / 흰 글자 -->
+    <style name="Widget.Maeum.Button.Accent">
+        <item name="backgroundTint">@color/button_accent_container</item>
+        <item name="android:textColor">@color/button_accent_content</item>
+        <item name="iconTint">@color/button_accent_content</item>
+    </style>
+
+    <!-- Error · error 배경 / 흰 글자 (되돌릴 수 없는 작업) -->
+    <style name="Widget.Maeum.Button.Error">
+        <item name="backgroundTint">@color/button_error_container</item>
+        <item name="android:textColor">@color/button_error_content</item>
+        <item name="iconTint">@color/button_error_content</item>
+    </style>
+
+    <!-- Alert · glow 배경 / 어두운 글자 (순서 도달 화면) -->
+    <style name="Widget.Maeum.Button.Alert">
+        <item name="backgroundTint">@color/button_alert_container</item>
+        <item name="android:textColor">@color/button_alert_content</item>
+        <item name="iconTint">@color/button_alert_content</item>
+        <item name="rippleColor">@color/ripple_dark_content</item>
+    </style>
+
+    <!-- Alert Outlined · 어두운 배경 + on-dark-variant 테두리 / 흰 글자 (순서 도달 화면) -->
+    <style name="Widget.Maeum.Button.AlertOutlined">
+        <item name="backgroundTint">@color/dark_bg</item>
+        <item name="strokeColor">@color/button_alert_outlined_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textColor">@color/button_alert_outlined_content</item>
+        <item name="iconTint">@color/button_alert_outlined_content</item>
+        <item name="rippleColor">@color/ripple_on_dark</item>
+    </style>
+
+    <!-- Outlined · outline 테두리 / primary 글자 -->
+    <style name="Widget.Maeum.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:minHeight">@dimen/button_height_large</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelLarge</item>
+        <item name="iconSize">@dimen/icon_size</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="strokeColor">@color/button_outlined_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="android:textColor">@color/button_text_content</item>
+        <item name="iconTint">@color/button_text_content</item>
+    </style>
+
+    <!-- Text · 배경 없음 / primary 글자 -->
+    <style name="Widget.Maeum.Button.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:minHeight">@dimen/button_height_large</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelLarge</item>
+        <item name="iconSize">@dimen/icon_size</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:textColor">@color/button_text_content</item>
+        <item name="iconTint">@color/button_text_content</item>
+    </style>
+
+    <!-- Neutral · 배경 없음 / on-surface-variant 글자 -->
+    <style name="Widget.Maeum.Button.Neutral" parent="Widget.Maeum.Button.Text">
+        <item name="android:textColor">@color/button_neutral_content</item>
+        <item name="iconTint">@color/button_neutral_content</item>
+        <item name="rippleColor">@color/ripple_neutral</item>
+    </style>
+
+    <!-- Error Text · 배경 없음 / error 글자 -->
+    <style name="Widget.Maeum.Button.ErrorText" parent="Widget.Maeum.Button.Text">
+        <item name="android:textColor">@color/button_error_text_content</item>
+        <item name="iconTint">@color/button_error_text_content</item>
+        <item name="rippleColor">@color/ripple_error</item>
+    </style>
+
+    <!-- Medium 크기: 높이 48dp · 좌우 20dp · Label/Medium · 아이콘 20dp -->
+    <style name="Widget.Maeum.Button.Filled.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Tonal.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Accent.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Error.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Alert.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.AlertOutlined.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Outlined.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Text.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.Neutral.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <style name="Widget.Maeum.Button.ErrorText.Medium">
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+    </style>
+
+    <!--
+        Icon Button · 48×48dp · 아이콘 24dp · 모서리 8dp
+        사용: <Button style="@style/Widget.Maeum.IconButton.Standard"
+                  app:icon="@drawable/ic_settings" android:contentDescription="설정" />
+    -->
+    <style name="Widget.Maeum.IconButton.Standard" parent="Widget.Material3.Button.IconButton">
+        <item name="android:minWidth">@dimen/touch_target_min</item>
+        <item name="android:minHeight">@dimen/touch_target_min</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="iconSize">@dimen/icon_size</item>
+        <item name="iconPadding">0dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="iconTint">@color/on_surface_variant</item>
+        <item name="rippleColor">@color/ripple_neutral</item>
+    </style>
+
+    <!-- Tonal · surface-container 배경 -->
+    <style name="Widget.Maeum.IconButton.Tonal" parent="Widget.Maeum.IconButton.Standard">
+        <item name="backgroundTint">@color/surface_container</item>
+        <item name="iconTint">@color/on_surface</item>
+    </style>
+
+    <!-- Outlined · outline-variant 테두리 -->
+    <style name="Widget.Maeum.IconButton.Outlined" parent="Widget.Maeum.IconButton.Standard">
+        <item name="strokeColor">@color/outline_variant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="iconTint">@color/on_surface</item>
+    </style>
+
+    <!-- Filled · primary 배경 -->
+    <style name="Widget.Maeum.IconButton.Filled" parent="Widget.Maeum.IconButton.Standard">
+        <item name="backgroundTint">@color/button_filled_container</item>
+        <item name="iconTint">@color/button_filled_content</item>
+        <item name="rippleColor">@color/ripple_on_dark</item>
+    </style>
+
+    <!--
+        Queue Status Toggle 한 칸 (Figma: Queue Status Toggle) · 어두운 사장님 대시보드 위
+        배경 @drawable/bg_segment_group_on_dark 인 가로 LinearLayout(안쪽 여백 4dp) 안에 두 버튼을 나란히 두고,
+        선택된 쪽만 setChecked(true)
+    -->
+    <style name="Widget.Maeum.Segment" parent="Widget.Material3.Button.TextButton">
+        <item name="android:checkable">true</item>
+        <item name="android:minHeight">@dimen/button_height_medium</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">@dimen/radius_md</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.LabelMedium</item>
+        <item name="android:textColor">@color/segment_content</item>
+        <item name="iconTint">@color/segment_content</item>
+        <item name="iconSize">@dimen/icon_size_small</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="rippleColor">@color/ripple_on_dark</item>
+    </style>
+
+    <!-- 「대기 진행 중」: 선택되면 success 배경 -->
+    <style name="Widget.Maeum.Segment.Running">
+        <item name="backgroundTint">@color/segment_running_container</item>
+        <item name="icon">@drawable/ic_play</item>
+    </style>
+
+    <!-- 「일시중단」: 선택되면 error 배경 -->
+    <style name="Widget.Maeum.Segment.Paused">
+        <item name="backgroundTint">@color/segment_paused_container</item>
+        <item name="icon">@drawable/ic_pause</item>
+    </style>
+</resources>

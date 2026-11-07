@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Typography (Figma: Design System · Typography)
+        사용: android:textAppearance="@style/TextAppearance.Maeum.TitleLarge"
+        글꼴: Noto Sans KR (숫자 표시는 Roboto). 자간은 Figma px 값을 em으로 바꾼 값.
+    -->
+
+    <!-- Display/Ticket · Roboto 700 88/96 · 대기 번호 -->
+    <style name="TextAppearance.Maeum.DisplayTicket" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">88sp</item>
+        <item name="lineHeight">96sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <!-- Display/Number · Roboto 700 64/72 · 카운트다운 숫자 -->
+    <style name="TextAppearance.Maeum.DisplayNumber" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">64sp</item>
+        <item name="lineHeight">72sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <!-- Headline/Large · 700 28/38 -->
+    <style name="TextAppearance.Maeum.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">38sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <!-- Headline/Medium · 700 24/34 -->
+    <style name="TextAppearance.Maeum.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">34sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <!-- Headline/Small · 700 22/30 -->
+    <style name="TextAppearance.Maeum.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">22sp</item>
+        <item name="lineHeight">30sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <!-- Title/Large · 700 20/28 · 화면 제목 -->
+    <style name="TextAppearance.Maeum.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">28sp</item>
+        <item name="android:letterSpacing">-0.005</item>
+    </style>
+
+    <!-- Title/Medium · 700 18/26 · 카드 제목 -->
+    <style name="TextAppearance.Maeum.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">26sp</item>
+        <item name="android:letterSpacing">-0.005</item>
+    </style>
+
+    <!-- Title/Small · 500 16/24 · 목록 제목, 입력창 라벨 -->
+    <style name="TextAppearance.Maeum.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/noto_sans_kr_medium</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Body/Large · 400 16/24 · 본문 기본 -->
+    <style name="TextAppearance.Maeum.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Body/Medium · 400 14/20 · 보조 설명 -->
+    <style name="TextAppearance.Maeum.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Label/Large · 700 18/24 · 큰 버튼 -->
+    <style name="TextAppearance.Maeum.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_bold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">-0.005</item>
+    </style>
+
+    <!-- Label/Medium · 500 16/22 · 중간 버튼 -->
+    <style name="TextAppearance.Maeum.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/noto_sans_kr_medium</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">22sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Label/Small · 500 14/20 · 칩, 상태 태그 -->
+    <style name="TextAppearance.Maeum.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/noto_sans_kr_medium</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- Caption · 400 12/16 -->
+    <style name="TextAppearance.Maeum.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+</resources>

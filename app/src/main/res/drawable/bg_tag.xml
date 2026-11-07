@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 상태 태그 · 배지 바탕 (모서리 4dp). 색은 android:backgroundTint 로 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/radius_sm" />
+    <solid android:color="@android:color/white" />
+</shape>

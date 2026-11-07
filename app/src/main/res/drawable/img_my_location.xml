@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 지도 내 위치 (Figma: C1-1 · 내 위치 + 내 위치 범위). 56dp 범위 안에 18dp 점 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="56dp"
+    android:height="56dp"
+    android:viewportWidth="56"
+    android:viewportHeight="56">
+    <path
+        android:fillColor="@color/my_location_halo"
+        android:pathData="M28,0A28,28 0,1 1,28 56A28,28 0,1 1,28 0Z" />
+    <path
+        android:fillColor="@color/on_primary"
+        android:pathData="M28,19A9,9 0,1 1,28 37A9,9 0,1 1,28 19Z" />
+    <path
+        android:fillColor="@color/primary"
+        android:pathData="M28,22A6,6 0,1 1,28 34A6,6 0,1 1,28 22Z" />
+</vector>

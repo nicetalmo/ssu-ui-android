@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shape · Corner Radius (Figma: radius/*). 모서리는 최대 12dp -->
+    <dimen name="radius_none">0dp</dimen> <!-- 구분선 · 화면 배경 -->
+    <dimen name="radius_xs">2dp</dimen> <!-- 체크박스 · 스캔 라인 · 제스처 바 -->
+    <dimen name="radius_sm">4dp</dimen> <!-- 상태 태그 · 작은 칩 · 로고 마크(S) -->
+    <dimen name="radius_md">8dp</dimen> <!-- 버튼 · 입력창 · 칩 · 아이콘 컨테이너 · 세그먼트 -->
+    <dimen name="radius_lg">12dp</dimen> <!-- 카드 · 다이얼로그 · 대기표 · 요약 패널 -->
+    <dimen name="radius_full">999dp</dimen> <!-- 스위치 · 지도 마커 (캡슐) -->
+    <dimen name="radius_sheet">20dp</dimen> <!-- 바텀시트 위쪽 모서리 -->
+
+    <!-- Elevation (Figma Effect Styles를 Android 그림자 높이로 옮긴 값) -->
+    <dimen name="elevation_1">1dp</dimen> <!-- Elevation/1: 목록 카드 (y1 blur3 8% + y1 blur2 5%) -->
+    <dimen name="elevation_2">3dp</dimen> <!-- Elevation/2: CTA · 대기표 · 포스터 (y4 blur12 10% + y2 blur4 6%) -->
+    <dimen name="elevation_3">8dp</dimen> <!-- Elevation/3: 다이얼로그 (y16 blur40 22% + y4 blur10 10%) -->
+
+    <!-- 터치 영역 (Figma: DS · Accessibility) -->
+    <dimen name="touch_target_min">48dp</dimen> <!-- 모든 버튼 48dp 이상 -->
+    <dimen name="button_height_large">56dp</dimen> <!-- 주요 CTA -->
+    <dimen name="button_height_medium">48dp</dimen>
+    <dimen name="button_height_owner_call">72dp</dimen> <!-- 사장님 「다음 손님 호출」 -->
+
+    <!-- 아이콘 -->
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="icon_size_small">20dp</dimen>
+
+    <!-- 화면 (Android 360×800dp 기준) -->
+    <dimen name="screen_padding_horizontal">16dp</dimen>
+    <dimen name="top_app_bar_height">64dp</dimen>
+</resources>

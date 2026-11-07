@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QR 스캔 라인 (220×3dp, 가운데만 진하고 양 끝은 투명). 위아래로 움직이는 애니메이션은 코드에서 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <size
+        android:width="220dp"
+        android:height="3dp" />
+    <corners android:radius="@dimen/radius_xs" />
+    <gradient
+        android:angle="0"
+        android:centerColor="@color/qr_scan_line"
+        android:endColor="@color/qr_scan_line_fade"
+        android:startColor="@color/qr_scan_line_fade" />
+</shape>

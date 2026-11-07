@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 앱 시작 때 미리 받아 두는 폰트 (AndroidManifest의 preloaded_fonts meta-data) -->
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/noto_sans_kr_regular</item>
+        <item>@font/noto_sans_kr_medium</item>
+        <item>@font/noto_sans_kr_bold</item>
+        <item>@font/roboto_bold</item>
+    </array>
+</resources>
