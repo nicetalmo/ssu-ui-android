@@ -6,102 +6,90 @@
     android:id="@+id/map_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/map_surface"
+    android:background="@color/background"
     tools:context=".map.MapActivity">
 
-    
+
     <FrameLayout
         android:id="@+id/map_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    
+
     <LinearLayout
         android:id="@+id/map_top_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        
+
         <FrameLayout
             android:id="@+id/map_title_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/map_surface">
+            android:background="@color/background">
 
-            <LinearLayout
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/map_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="4dp"
-                android:paddingEnd="16dp">
-
-                <ImageButton
-                    android:id="@+id/map_back"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/map_back"
-                    android:src="@drawable/map_ic_arrow_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="@string/map_title"
-                    android:textColor="@color/map_ink"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:accessibilityHeading="true"
-                    tools:ignore="UnusedAttribute" />
-            </LinearLayout>
+                android:layout_height="@dimen/top_app_bar_height"
+                app:navigationContentDescription="@string/map_back"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:title="@string/map_title" />
         </FrameLayout>
 
-       
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:paddingStart="16dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
+            android:paddingStart="@dimen/screen_padding_horizontal"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
             android:scrollbars="none">
 
-            <LinearLayout
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/map_chip_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                app:chipSpacingHorizontal="8dp"
+                app:singleLine="true">
 
-                <TextView
+                <com.google.android.material.chip.Chip
                     android:id="@+id/map_chip_sort_wait"
-                    style="@style/MapFilterChip"
+                    style="@style/Widget.Maeum.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
                     android:text="@string/map_chip_sort_wait" />
 
-                <TextView
+                <com.google.android.material.chip.Chip
                     android:id="@+id/map_chip_walk"
-                    style="@style/MapFilterChip"
+                    style="@style/Widget.Maeum.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/map_chip_walk" />
 
-                <TextView
+                <com.google.android.material.chip.Chip
                     android:id="@+id/map_chip_booth"
-                    style="@style/MapFilterChip"
+                    style="@style/Widget.Maeum.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/map_chip_booth" />
-            </LinearLayout>
+            </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
     </LinearLayout>
 
-    
+
     <LinearLayout
         android:id="@+id/map_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/map_bg_sheet"
-        android:elevation="12dp"
+        android:background="@drawable/bg_bottom_sheet"
+        android:elevation="@dimen/elevation_3"
         android:orientation="vertical"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="@dimen/map_sheet_peek"
+        app:behavior_peekHeight="340dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <View
@@ -109,35 +97,33 @@
             android:layout_height="4dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:background="@drawable/map_bg_sheet_handle" />
+            android:background="@drawable/bg_sheet_handle" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingStart="16dp"
+            android:paddingStart="@dimen/screen_padding_horizontal"
             android:paddingTop="14dp"
-            android:paddingEnd="16dp"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
             android:paddingBottom="12dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/map_sheet_title"
-                android:textColor="@color/map_ink"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 android:accessibilityHeading="true"
+                android:text="@string/map_sheet_title"
+                android:textAppearance="@style/TextAppearance.Maeum.TitleMedium"
                 tools:ignore="UnusedAttribute" />
 
             <TextView
                 android:id="@+id/map_store_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/map_body"
-                android:textSize="13sp"
+                android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+                android:textColor="@color/on_surface_variant"
                 tools:text="4곳" />
         </LinearLayout>
 
@@ -146,12 +132,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:lineSpacingExtra="4dp"
             android:paddingTop="32dp"
             android:paddingBottom="32dp"
             android:text="@string/map_empty"
-            android:textColor="@color/map_body"
-            android:textSize="14sp"
+            android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+            android:textColor="@color/on_surface_variant"
             android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -160,8 +145,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clipToPadding="false"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="@dimen/screen_padding_horizontal"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
             android:paddingBottom="16dp" />
     </LinearLayout>
 

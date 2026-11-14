@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="map_title">주변 매장 지도</string>
+    <string name="map_back">뒤로 가기</string>
+
+    <string name="map_chip_sort_wait">대기 적은 순</string>
+    <string name="map_chip_walk">도보 10분</string>
+    <string name="map_chip_booth">축제 부스</string>
+
+    <string name="map_sheet_title">지금 주변 대기 현황</string>
+    <string name="map_empty">주변에 대기를 받는 매장이 없어요.</string>
+</resources>
