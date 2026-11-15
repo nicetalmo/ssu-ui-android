@@ -1,3 +1,4 @@
+import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
 
@@ -5,6 +6,11 @@ plugins {
     id("com.google.gms.google-services")
 }
 
+// 네이버 지도 Client ID는 local.properties에서 읽는다
+val localProps = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
+}
 android {
     namespace = "com.example.ssuui"
     compileSdk {
@@ -19,6 +25,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders["NAVER_MAP_CLIENT_ID"] = localProps.getProperty("NAVER_MAP_CLIENT_ID", "")
     }
 
     buildTypes {
@@ -40,6 +48,8 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
     implementation(libs.material)
+    implementation(libs.recyclerview)
+    implementation(libs.naver.map.sdk)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
