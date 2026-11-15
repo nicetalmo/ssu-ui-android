@@ -9,5 +9,13 @@
     <string name="map_chip_booth">축제 부스</string>
 
     <string name="map_sheet_title">지금 주변 대기 현황</string>
+    <string name="map_store_count">%1$d곳</string>
     <string name="map_empty">주변에 대기를 받는 매장이 없어요.</string>
+
+    <string name="map_marker_waiting">%1$s · %2$d팀</string>
+    <string name="map_marker_paused">%1$s · 접수중단</string>
+
+    <string name="map_row_meta">도보 %1$d분 · 1팀당 %2$d분</string>
+    <string name="map_tag_waiting">대기 %1$d팀</string>
+    <string name="map_tag_paused">접수중단</string>
 </resources>
