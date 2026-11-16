@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ssuui.AuthManager;
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.example.ssuui.StoreManager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -47,7 +48,7 @@ public class OwnerLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        OwnerScreen.setContentView(this, R.layout.activity_owner_login);
+        Screens.setContentView(this, R.layout.activity_owner_login);
 
         MaterialToolbar toolbar = findViewById(R.id.login_toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
@@ -78,21 +79,21 @@ public class OwnerLoginActivity extends AppCompatActivity {
 
     private void submit() {
         if (!submitButton.isEnabled()) return;
-        OwnerScreen.showError(errorView, null);
+        Screens.showError(errorView, null);
         setBusy(true);
-        AuthManager.getInstance().signIn(OwnerScreen.text(idInput), OwnerScreen.rawText(passwordInput),
+        AuthManager.getInstance().signIn(Screens.text(idInput), Screens.rawText(passwordInput),
                 new AuthManager.AuthCallback() {
                     @Override
                     public void onSuccess(FirebaseUser user) {
-                        if (OwnerScreen.isGone(OwnerLoginActivity.this)) return;
+                        if (Screens.isGone(OwnerLoginActivity.this)) return;
                         openMyStore();
                     }
 
                     @Override
                     public void onFailure(String message) {
-                        if (OwnerScreen.isGone(OwnerLoginActivity.this)) return;
+                        if (Screens.isGone(OwnerLoginActivity.this)) return;
                         setBusy(false);
-                        OwnerScreen.showError(errorView, message);
+                        Screens.showError(errorView, message);
                     }
                 });
     }
@@ -102,7 +103,7 @@ public class OwnerLoginActivity extends AppCompatActivity {
         StoreManager.getInstance().getMyStoreId(new StoreManager.StoreIdCallback() {
             @Override
             public void onResult(@Nullable String storeId) {
-                if (OwnerScreen.isGone(OwnerLoginActivity.this)) return;
+                if (Screens.isGone(OwnerLoginActivity.this)) return;
                 startActivity(storeId == null
                         ? new Intent(OwnerLoginActivity.this, StoreInfoActivity.class)
                         : QrPosterActivity.newIntent(OwnerLoginActivity.this, storeId));
@@ -111,10 +112,10 @@ public class OwnerLoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(String message) {
-                if (OwnerScreen.isGone(OwnerLoginActivity.this)) return;
+                if (Screens.isGone(OwnerLoginActivity.this)) return;
                 showChecking(false);
                 setBusy(false);
-                OwnerScreen.showError(errorView, message);
+                Screens.showError(errorView, message);
             }
         });
     }

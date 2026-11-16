@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.example.ssuui.StoreDraft;
 
 import java.text.NumberFormat;
@@ -98,7 +99,7 @@ public class StoreMenuActivity extends StoreStepActivity {
 
         View remove = row.findViewById(R.id.menu_row_remove);
         remove.setContentDescription(getString(R.string.menu_remove, menu.name));
-        remove.setOnClickListener(v -> OwnerScreen.confirmRemove(this,
+        remove.setOnClickListener(v -> Screens.confirmRemove(this,
                 getString(R.string.menu_remove_title, menu.name), () -> {
                     draft.menus.remove(menu);
                     render();

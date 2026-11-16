@@ -27,4 +27,7 @@
     <!-- 화면 (Android 360×800dp 기준) -->
     <dimen name="screen_padding_horizontal">16dp</dimen>
     <dimen name="top_app_bar_height">64dp</dimen>
+
+    <!-- QR 스캔 창 (Figma: C2 · 스캔 창 260×260dp, 모서리 표시는 @drawable/img_qr_scan_frame) -->
+    <dimen name="qr_scan_window">260dp</dimen>
 </resources>

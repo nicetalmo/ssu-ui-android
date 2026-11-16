@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 손님 화면: 메인 → QR 스캔 → 대기 등록 → 등록 완료 -->
+<resources>
+    <!-- 메인 -->
+    <string name="main_headline">줄 서지 말고\nQR로 기다리세요</string>
+    <string name="main_description">매장 입구의 QR을 찍고 인원과 번호만 입력하면\n대기 등록이 끝나요.</string>
+    <string name="main_poster_title">이 포스터를 찾아 주세요</string>
+    <string name="main_poster_body">매장 입구에 붙은\n마음대기 QR 포스터예요.</string>
+    <string name="main_scan">QR 찍고 줄서기</string>
+    <string name="main_open_map">주변 매장 지도</string>
+    <string name="main_owner_start">사장님이신가요? 대기열 만들기</string>
+
+    <!-- QR 스캔 -->
+    <string name="scan_title">QR 스캔</string>
+    <string name="scan_close">닫기</string>
+    <string name="scan_hint">매장 입구의 QR을 네모 안에 맞춰 주세요</string>
+    <string name="scan_subhint">‘QR 찍고, 편하게 기다리세요’ 포스터의 QR이에요</string>
+    <string name="scan_not_store_qr">마음대기 매장 QR이 아니에요</string>
+    <string name="scan_torch">손전등</string>
+    <string name="scan_permission_needed">QR을 찍으려면\n카메라 권한이 필요해요</string>
+    <string name="scan_permission_allow">카메라 권한 허용하기</string>
+    <string name="scan_permission_settings">설정의 권한 메뉴에서\n카메라를 허용해 주세요</string>
+    <string name="scan_open_settings">설정 열기</string>
+    <string name="scan_camera_error">카메라를 열지 못했어요</string>
+
+    <!-- 대기 등록 -->
+    <string name="join_title">대기 등록</string>
+    <string name="join_back">뒤로 가기</string>
+    <string name="join_retry">다시 시도</string>
+    <string name="join_not_store_qr">마음대기 매장 QR이 아니에요.\n매장 입구의 QR을 다시 찍어 주세요.</string>
+    <string name="join_photo_description">%1$s 매장 사진 %2$d</string>
+    <string name="join_tag_now">바로 입장</string>
+    <string name="join_tag_waiting">대기 %1$d팀</string>
+    <string name="join_tag_paused">접수 중단</string>
+    <string name="join_tag_closed">접수 마감</string>
+    <string name="join_tag_full">대기 가득</string>
+    <string name="join_wait_now">지금 등록하면 바로 안내받을 수 있어요.</string>
+    <string name="join_wait_expected">예상 대기 약 %1$d분 (1팀당 %2$d분)</string>
+    <string name="join_wait_count">지금 대기 %1$d팀 (1팀당 %2$d분)</string>
+    <string name="join_notice_title">매장 공지</string>
+    <string name="join_menu_title">메뉴</string>
+    <string name="join_form_title">몇 분이 기다리시나요?</string>
+    <string name="join_party_label">인원</string>
+    <string name="join_party_value">%1$d명</string>
+    <string name="join_party_decrease">인원 줄이기</string>
+    <string name="join_party_increase">인원 늘리기</string>
+    <string name="join_phone_label">휴대전화 번호</string>
+    <string name="join_phone_hint">01012345678</string>
+    <string name="join_phone_helper">순서 알림에만 쓰고, 입장하면 바로 지워요</string>
+    <string name="join_consent">휴대전화 번호를 순서 알림에\n쓰는 데 동의해요</string>
+    <string name="join_consent_needed">휴대전화 번호 사용에 동의해 주세요.</string>
+    <string name="join_submit">대기 등록하기</string>
+    <string name="join_submitting">등록하는 중…</string>
+
+    <!-- 등록 완료 -->
+    <string name="done_close">닫기</string>
+    <string name="done_heading">대기 등록이 끝났어요</string>
+    <string name="done_number_label">대기 번호</string>
+    <string name="done_ahead_label">내 앞 대기</string>
+    <string name="done_ahead_value">%1$d팀</string>
+    <string name="done_wait_label">예상 대기 시간</string>
+    <string name="done_wait_value">약 %1$d분</string>
+    <string name="done_wait_now">곧 안내받아요</string>
+    <string name="done_party_label">인원</string>
+    <string name="done_entry_notice">번호를 부르면 %1$d분 안에\n매장으로 와 주세요.</string>
+    <string name="done_confirm">확인</string>
+</resources>

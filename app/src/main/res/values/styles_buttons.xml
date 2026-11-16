@@ -273,6 +273,40 @@
         <item name="rippleColor">@color/ripple_on_dark</item>
     </style>
 
+    <!-- On Dark · 어두운 바탕(QR 스캔 화면) 위 아이콘 버튼 / 흰 아이콘 -->
+    <style name="Widget.Maeum.IconButton.OnDark" parent="Widget.Maeum.IconButton.Standard">
+        <item name="iconTint">@color/on_dark</item>
+        <item name="rippleColor">@color/ripple_on_dark</item>
+    </style>
+
+    <!--
+        Stepper +/- 버튼 · 56×56dp · primary-container 타일 (끝값에서는 setEnabled(false))
+        <Button style="@style/Widget.Maeum.IconButton.Stepper" app:icon="@drawable/ic_add"
+            android:contentDescription="인원 늘리기" />
+    -->
+    <style name="Widget.Maeum.IconButton.Stepper" parent="Widget.Maeum.IconButton.Standard">
+        <item name="android:minWidth">56dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="backgroundTint">@color/button_tonal_container</item>
+        <item name="iconTint">@color/button_tonal_content</item>
+    </style>
+
+    <!--
+        On Dark Toggle · 어두운 바탕 위 켜고 끄는 버튼 (QR 스캔 화면 손전등) · Medium 크기
+        꺼짐: 흰색 10% 배경 / 흰 글자 · 켜짐(checked): 흰 배경 / 어두운 글자
+    -->
+    <style name="Widget.Maeum.Button.OnDarkToggle" parent="Widget.Maeum.Button.Tonal.Medium">
+        <item name="android:checkable">true</item>
+        <item name="backgroundTint">@color/button_on_dark_toggle_container</item>
+        <item name="android:textColor">@color/button_on_dark_toggle_content</item>
+        <item name="iconTint">@color/button_on_dark_toggle_content</item>
+        <item name="rippleColor">@color/ripple_on_dark</item>
+    </style>
+
     <!--
         Queue Status Toggle 한 칸 (Figma: Queue Status Toggle) · 어두운 사장님 대시보드 위
         배경 @drawable/bg_segment_group_on_dark 인 가로 LinearLayout(안쪽 여백 4dp) 안에 두 버튼을 나란히 두고,

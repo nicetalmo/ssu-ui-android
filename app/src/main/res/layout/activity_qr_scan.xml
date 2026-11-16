@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    QR 스캔 (Figma: C2) · 카메라 미리보기 위에 스캔 창(260dp) 바깥을 어둡게 덮고 네 귀퉁이 표시 + 스캔 라인.
+    상단 바·안내·손전등은 시스템 바 높이만큼 안쪽에 (QrScanActivity 에서 scan_overlay 에 padding)
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_bg"
+    tools:context=".customer.QrScanActivity">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/scan_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no" />
+
+    <com.example.ssuui.customer.ScanDimView
+        android:id="@+id/scan_dim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scan_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/scan_top_bar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/top_app_bar_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/scan_close"
+                style="@style/Widget.Maeum.IconButton.OnDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/scan_close"
+                app:icon="@drawable/ic_close" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:accessibilityHeading="true"
+                android:text="@string/scan_title"
+                android:textAppearance="@style/TextAppearance.Maeum.TitleLarge"
+                android:textColor="@color/on_dark"
+                tools:ignore="UnusedAttribute" />
+        </LinearLayout>
+
+        <!-- 스캔 창: ScanDimView 가 이 뷰 자리만 비워 둠 -->
+        <View
+            android:id="@+id/scan_window"
+            android:layout_width="@dimen/qr_scan_window"
+            android:layout_height="@dimen/qr_scan_window"
+            android:background="@drawable/img_qr_scan_frame"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4" />
+
+        <!-- 스캔 라인: 창 안에서 위아래로 움직임 (QrScanActivity) -->
+        <View
+            android:id="@+id/scan_line"
+            android:layout_width="220dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_qr_scan_line"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@id/scan_window"
+            app:layout_constraintStart_toStartOf="@id/scan_window"
+            app:layout_constraintTop_toTopOf="@id/scan_window" />
+
+        <!-- 카메라 권한이 없거나 카메라를 못 열었을 때 창 안에 보여 줌 -->
+        <LinearLayout
+            android:id="@+id/scan_problem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/scan_window"
+            app:layout_constraintEnd_toEndOf="@id/scan_window"
+            app:layout_constraintStart_toStartOf="@id/scan_window"
+            app:layout_constraintTop_toTopOf="@id/scan_window">
+
+            <TextView
+                android:id="@+id/scan_problem_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.Maeum.TitleSmall"
+                android:textColor="@color/on_dark"
+                tools:text="@string/scan_permission_needed" />
+
+            <Button
+                android:id="@+id/scan_problem_action"
+                style="@style/Widget.Maeum.Button.Filled.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                tools:text="@string/scan_permission_allow" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/scan_hint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_padding_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/screen_padding_horizontal"
+            android:gravity="center"
+            android:text="@string/scan_hint"
+            android:textAppearance="@style/TextAppearance.Maeum.TitleSmall"
+            android:textColor="@color/on_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scan_window" />
+
+        <TextView
+            android:id="@+id/scan_subhint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_padding_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="@dimen/screen_padding_horizontal"
+            android:gravity="center"
+            android:text="@string/scan_subhint"
+            android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+            android:textColor="@color/on_dark_variant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scan_hint" />
+
+        <!-- 마음대기 매장 QR 이 아닌 QR 을 찍었을 때 잠깐 보임 -->
+        <TextView
+            android:id="@+id/scan_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:accessibilityLiveRegion="polite"
+            android:drawablePadding="6dp"
+            android:gravity="center_vertical"
+            android:text="@string/scan_not_store_qr"
+            android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+            android:textColor="@color/warning_on_dark"
+            android:visibility="invisible"
+            app:drawableStartCompat="@drawable/ic_warning"
+            app:drawableTint="@color/warning_on_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scan_subhint" />
+
+        <!-- 켜짐 표시(setChecked)를 코드에서 맞추므로 MaterialButton 으로 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/scan_torch"
+            style="@style/Widget.Maeum.Button.OnDarkToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/scan_torch"
+            android:visibility="gone"
+            app:icon="@drawable/ic_flashlight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

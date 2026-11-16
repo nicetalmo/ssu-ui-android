@@ -18,6 +18,7 @@ import androidx.core.content.IntentCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.example.ssuui.StoreDraft;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.materialswitch.MaterialSwitch;
@@ -73,7 +74,7 @@ public class MenuEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        OwnerScreen.setContentView(this, R.layout.activity_menu_edit);
+        Screens.setContentView(this, R.layout.activity_menu_edit);
 
         index = getIntent().getIntExtra(EXTRA_INDEX, NEW_MENU);
         boolean editing = index != NEW_MENU;
@@ -98,7 +99,7 @@ public class MenuEditActivity extends AppCompatActivity {
                 .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
                 .build()));
         photoTile.setContentDescription(getString(R.string.menu_edit_photo_description));
-        photoTile.setOnClickListener(v -> OwnerScreen.confirmRemove(this, R.string.photo_remove_title, () -> {
+        photoTile.setOnClickListener(v -> Screens.confirmRemove(this, R.string.photo_remove_title, () -> {
             photoUri = null;
             renderPhoto();
         }));
@@ -118,7 +119,7 @@ public class MenuEditActivity extends AppCompatActivity {
     }
 
     private void save() {
-        String name = OwnerScreen.text(nameInput);
+        String name = Screens.text(nameInput);
         if (name.isEmpty()) {
             nameLayout.setError(getString(R.string.menu_edit_name_error));
             nameInput.requestFocus();
@@ -127,7 +128,7 @@ public class MenuEditActivity extends AppCompatActivity {
         nameLayout.setError(null);
 
         // 숫자 키패드 + 최대 7자리라 int 범위 안의 0 이상 정수만 들어옴
-        String price = OwnerScreen.text(priceInput);
+        String price = Screens.text(priceInput);
         StoreDraft.Menu menu = new StoreDraft.Menu(name,
                 price.isEmpty() ? null : Integer.valueOf(price),
                 photoUri,

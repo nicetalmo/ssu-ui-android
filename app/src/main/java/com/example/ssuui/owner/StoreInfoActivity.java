@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.example.ssuui.AuthManager;
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -85,8 +86,8 @@ public class StoreInfoActivity extends StoreStepActivity {
 
     @Override
     protected void saveInputs() {
-        draft.name = OwnerScreen.textOrNull(nameInput);
-        draft.intro = OwnerScreen.textOrNull(introInput);
+        draft.name = Screens.textOrNull(nameInput);
+        draft.intro = Screens.textOrNull(introInput);
     }
 
     @Override
@@ -109,7 +110,7 @@ public class StoreInfoActivity extends StoreStepActivity {
             ImageView image = tile.findViewById(R.id.photo_image);
             Glide.with(this).load(Uri.parse(uri)).centerCrop().into(image);
             tile.setContentDescription(getString(R.string.info_photo_description, i + 1));
-            tile.setOnClickListener(v -> OwnerScreen.confirmRemove(this, R.string.photo_remove_title, () -> {
+            tile.setOnClickListener(v -> Screens.confirmRemove(this, R.string.photo_remove_title, () -> {
                 draft.photoUris.remove(uri);
                 renderPhotos();
             }));

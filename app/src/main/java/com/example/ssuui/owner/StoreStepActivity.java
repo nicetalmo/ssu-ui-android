@@ -17,6 +17,7 @@ import androidx.core.content.IntentCompat;
 import androidx.core.os.BundleCompat;
 
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.example.ssuui.StoreDraft;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
@@ -61,7 +62,7 @@ abstract class StoreStepActivity extends AppCompatActivity {
     /** layout 을 붙이고 상단 바와 "n / 3" 단계 제목을 채운다 (view_store_step_bar, view_store_step_heading) */
     protected final void setUpStep(@LayoutRes int layout, int step,
                                    @StringRes int heading, @StringRes int description) {
-        OwnerScreen.setContentView(this, layout);
+        Screens.setContentView(this, layout);
 
         MaterialToolbar toolbar = findViewById(R.id.step_toolbar);
         toolbar.setNavigationOnClickListener(v -> getOnBackPressedDispatcher().onBackPressed());

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ssuui.AuthManager;
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +31,7 @@ public class OwnerSignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        OwnerScreen.setContentView(this, R.layout.activity_owner_sign_up);
+        Screens.setContentView(this, R.layout.activity_owner_sign_up);
 
         MaterialToolbar toolbar = findViewById(R.id.signup_toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
@@ -51,23 +52,23 @@ public class OwnerSignUpActivity extends AppCompatActivity {
 
     private void submit() {
         if (!submitButton.isEnabled()) return;
-        OwnerScreen.showError(errorView, null);
+        Screens.showError(errorView, null);
         setBusy(true);
-        AuthManager.getInstance().signUp(OwnerScreen.text(idInput), OwnerScreen.rawText(passwordInput),
-                OwnerScreen.text(phoneInput),
+        AuthManager.getInstance().signUp(Screens.text(idInput), Screens.rawText(passwordInput),
+                Screens.text(phoneInput),
                 new AuthManager.AuthCallback() {
                     @Override
                     public void onSuccess(FirebaseUser user) {
-                        if (OwnerScreen.isGone(OwnerSignUpActivity.this)) return;
+                        if (Screens.isGone(OwnerSignUpActivity.this)) return;
                         setResult(RESULT_OK);
                         finish();
                     }
 
                     @Override
                     public void onFailure(String message) {
-                        if (OwnerScreen.isGone(OwnerSignUpActivity.this)) return;
+                        if (Screens.isGone(OwnerSignUpActivity.this)) return;
                         setBusy(false);
-                        OwnerScreen.showError(errorView, message);
+                        Screens.showError(errorView, message);
                     }
                 });
     }

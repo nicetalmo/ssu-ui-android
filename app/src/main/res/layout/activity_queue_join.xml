@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 대기 등록 · 매장 정보(사진·대기 현황·공지·메뉴) + 인원·휴대전화 번호 입력 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".customer.QueueJoinActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/join_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_app_bar_height"
+        app:navigationContentDescription="@string/join_back"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/join_title" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:id="@+id/join_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/screen_padding_horizontal"
+                android:paddingTop="8dp"
+                android:paddingEnd="@dimen/screen_padding_horizontal"
+                android:paddingBottom="24dp">
+
+                <!-- 매장 사진 (사진 칸 item_join_photo 는 코드에서) -->
+                <HorizontalScrollView
+                    android:id="@+id/join_photos_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:scrollbars="none"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/join_photos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+
+                <TextView
+                    android:id="@+id/join_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:accessibilityHeading="true"
+                    android:textAppearance="@style/TextAppearance.Maeum.HeadlineSmall"
+                    tools:ignore="UnusedAttribute"
+                    tools:text="성수동 파스타" />
+
+                <TextView
+                    android:id="@+id/join_intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+                    android:textColor="@color/on_surface_variant"
+                    tools:text="생면으로 만드는 파스타 전문점" />
+
+                <!-- 대기 현황 요약 패널 -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Maeum.Card.Notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardBackgroundColor="@color/surface_container">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/join_wait_tag"
+                            style="@style/Widget.Maeum.StatusTag.Info"
+                            tools:text="대기 4팀" />
+
+                        <TextView
+                            android:id="@+id/join_wait_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            tools:text="예상 대기 약 20분 (1팀당 5분)" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/join_notice"
+                    style="@style/Widget.Maeum.Card.Notice.Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/icon_size"
+                            android:layout_height="@dimen/icon_size"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_campaign"
+                            app:tint="@color/primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/join_notice_title"
+                                android:textAppearance="@style/TextAppearance.Maeum.TitleMedium"
+                                android:textColor="@color/on_primary_container" />
+
+                            <TextView
+                                android:id="@+id/join_notice_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textColor="@color/on_primary_container"
+                                tools:text="4인 이상은 직원에게 말씀해 주세요" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 메뉴 (메뉴 카드 item_join_menu 는 코드에서) -->
+                <LinearLayout
+                    android:id="@+id/join_menu_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:accessibilityHeading="true"
+                        android:text="@string/join_menu_title"
+                        android:textAppearance="@style/TextAppearance.Maeum.TitleMedium"
+                        tools:ignore="UnusedAttribute" />
+
+                    <LinearLayout
+                        android:id="@+id/join_menu_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/outline_variant" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:accessibilityHeading="true"
+                    android:text="@string/join_form_title"
+                    android:textAppearance="@style/TextAppearance.Maeum.TitleMedium"
+                    tools:ignore="UnusedAttribute" />
+
+                <TextView
+                    style="@style/Widget.Maeum.TextField.Label"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/join_party_label" />
+
+                <!-- Stepper: − n명 + -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.Maeum.Card.Outlined"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contentPadding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/join_party_minus"
+                            style="@style/Widget.Maeum.IconButton.Stepper"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/join_party_decrease"
+                            app:icon="@drawable/ic_remove" />
+
+                        <TextView
+                            android:id="@+id/join_party_value"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:accessibilityLiveRegion="polite"
+                            android:gravity="center"
+                            android:textAppearance="@style/TextAppearance.Maeum.HeadlineSmall"
+                            tools:text="2명" />
+
+                        <Button
+                            android:id="@+id/join_party_plus"
+                            style="@style/Widget.Maeum.IconButton.Stepper"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/join_party_increase"
+                            app:icon="@drawable/ic_add" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    style="@style/Widget.Maeum.TextField.Label"
+                    android:layout_marginTop="20dp"
+                    android:labelFor="@id/join_phone"
+                    android:text="@string/join_phone_label" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:helperText="@string/join_phone_helper">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/join_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="phone"
+                        android:hint="@string/join_phone_hint"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:maxLength="13"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <CheckBox
+                    android:id="@+id/join_consent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/join_consent" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/join_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorColor="@color/primary" />
+
+        <LinearLayout
+            android:id="@+id/join_load_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/join_load_error_text"
+                style="@style/Widget.Maeum.ErrorText"
+                android:layout_width="wrap_content"
+                android:visibility="visible"
+                tools:text="매장 정보를 불러오지 못했어요." />
+
+            <Button
+                android:id="@+id/join_retry"
+                style="@style/Widget.Maeum.Button.Tonal.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/join_retry"
+                app:icon="@drawable/ic_replay" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding_horizontal">
+
+        <!-- 등록 오류 (스크롤 위치와 상관없이 버튼 바로 위에 보이게) -->
+        <TextView
+            android:id="@+id/join_error"
+            style="@style/Widget.Maeum.ErrorText"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 지금 대기 등록을 받지 않는 이유 (접수 중단·마감·가득 참) -->
+        <TextView
+            android:id="@+id/join_blocked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+            android:textColor="@color/on_surface_variant"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_info"
+            app:drawableTint="@color/on_surface_variant"
+            tools:text="지금은 대기 접수를 잠시 멈췄어요. (재료 소진)"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/join_submit"
+            style="@style/Widget.Maeum.Button.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/join_submit" />
+    </LinearLayout>
+
+</LinearLayout>

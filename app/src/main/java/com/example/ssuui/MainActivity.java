@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.ssuui.customer.QrScanActivity;
 import com.example.ssuui.map.MapActivity;
 import com.example.ssuui.owner.OwnerLoginActivity;
 
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // 손님 메인: QR 찍고 줄서기 → QR 스캔 → 대기 등록
+        findViewById(R.id.main_scan).setOnClickListener(v ->
+                startActivity(new Intent(this, QrScanActivity.class)));
         findViewById(R.id.main_open_map).setOnClickListener(v ->
                 startActivity(new Intent(this, MapActivity.class)));
         // 사장님 화면 시작: 로그인 (이미 로그인했으면 로그인 화면이 바로 내 매장으로 넘겨 줌)

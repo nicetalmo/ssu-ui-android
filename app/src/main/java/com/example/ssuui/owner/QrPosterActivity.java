@@ -16,6 +16,7 @@ import androidx.print.PrintHelper;
 
 import com.example.ssuui.AuthManager;
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.example.ssuui.StoreManager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -55,7 +56,7 @@ public class QrPosterActivity extends AppCompatActivity {
             finish();
             return;
         }
-        OwnerScreen.setContentView(this, R.layout.activity_qr_poster);
+        Screens.setContentView(this, R.layout.activity_qr_poster);
 
         MaterialToolbar toolbar = findViewById(R.id.poster_toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
@@ -84,7 +85,7 @@ public class QrPosterActivity extends AppCompatActivity {
         StoreManager.getInstance().getStore(storeId, new StoreManager.StoreCallback() {
             @Override
             public void onSuccess(DocumentSnapshot store) {
-                if (OwnerScreen.isGone(QrPosterActivity.this)) return;
+                if (Screens.isGone(QrPosterActivity.this)) return;
                 String name = store.getString("name");
                 Long entryLimit = store.getLong("entryLimitMinutes");
                 storeName = name != null ? name : "";
@@ -97,7 +98,7 @@ public class QrPosterActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(String message) {
-                if (OwnerScreen.isGone(QrPosterActivity.this)) return;
+                if (Screens.isGone(QrPosterActivity.this)) return;
                 errorText.setText(message);
                 showState(errorGroup);
             }

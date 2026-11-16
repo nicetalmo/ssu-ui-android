@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.ssuui.R;
+import com.example.ssuui.Screens;
 import com.example.ssuui.StoreManager;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
@@ -71,7 +72,7 @@ public class StoreSettingsActivity extends StoreStepActivity {
         draft.maxTeams = number(maxTeamsInput);
         View checked = entryGroup.findViewById(entryGroup.getCheckedChipId());
         draft.entryLimitMinutes = checked == null ? 0 : Integer.parseInt((String) checked.getTag());
-        draft.notice = OwnerScreen.textOrNull(noticeInput);
+        draft.notice = Screens.textOrNull(noticeInput);
     }
 
     @Override
@@ -85,19 +86,19 @@ public class StoreSettingsActivity extends StoreStepActivity {
         if (!checkInputs()) return;
 
         setCreating(true);
-        OwnerScreen.showError(errorView, null);
+        Screens.showError(errorView, null);
         StoreManager.getInstance().createStore(draft, new StoreManager.CreateCallback() {
             @Override
             public void onSuccess(String storeId) {
-                if (OwnerScreen.isGone(StoreSettingsActivity.this)) return;
+                if (Screens.isGone(StoreSettingsActivity.this)) return;
                 finishWithStore(storeId);
             }
 
             @Override
             public void onFailure(String message) {
-                if (OwnerScreen.isGone(StoreSettingsActivity.this)) return;
+                if (Screens.isGone(StoreSettingsActivity.this)) return;
                 setCreating(false);
-                OwnerScreen.showError(errorView, message);
+                Screens.showError(errorView, message);
             }
         });
     }
@@ -136,7 +137,7 @@ public class StoreSettingsActivity extends StoreStepActivity {
 
     /** 숫자 칸 값, 비어 있으면 0 (숫자 키패드 + 최대 3자리라 그 밖의 글자는 들어오지 않음) */
     private static int number(TextInputEditText input) {
-        String text = OwnerScreen.text(input);
+        String text = Screens.text(input);
         return text.isEmpty() ? 0 : Integer.parseInt(text);
     }
 }
