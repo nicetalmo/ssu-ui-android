@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    매장 입구에 붙이는 QR 포스터 (Figma: QR 포스터 · @drawable/img_poster_sample 과 같은 배치)
+    A4 = 595 × 842pt 를 dp 로 그대로 쓴 크기. QrPoster 가 화면에 붙이지 않고 비트맵으로 그림.
+    인쇄물이라 글자 크기도 dp (기기 글자 크기 설정과 무관하게 같은 포스터)
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="595dp"
+    android:layout_height="842dp"
+    android:background="@color/surface"
+    android:orientation="vertical"
+    tools:ignore="SpUsage">
+
+    <!-- 머리띠: 로고 + 한 줄 소개 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="@color/primary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp">
+
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_icon_tile"
+            android:backgroundTint="@color/surface">
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_heart"
+                app:tint="@color/primary" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/Widget.Maeum.PosterText.Bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="@string/poster_brand"
+            android:textColor="@color/on_primary"
+            android:textSize="30dp" />
+
+        <TextView
+            style="@style/Widget.Maeum.PosterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/poster_tagline"
+            android:textColor="@color/on_primary"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <!-- 상호명: 길면 한 줄에 들어가게 줄어듦 -->
+    <TextView
+        android:id="@+id/poster_store_name"
+        style="@style/Widget.Maeum.PosterText.Bold"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="54dp"
+        app:autoSizeMaxTextSize="54dp"
+        app:autoSizeMinTextSize="24dp"
+        app:autoSizeStepGranularity="1dp"
+        app:autoSizeTextType="uniform"
+        tools:text="성수동 파스타" />
+
+    <TextView
+        style="@style/Widget.Maeum.PosterText.Bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/poster_headline"
+        android:textColor="@color/primary"
+        android:textSize="29dp" />
+
+    <!-- QR: 흰 테두리 칸 + 네 귀퉁이 표시 -->
+    <FrameLayout
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_poster_qr_frame">
+
+        <ImageView
+            android:id="@+id/poster_qr"
+            android:layout_width="184dp"
+            android:layout_height="184dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no" />
+
+        <!-- 귀퉁이 layer-list 는 뷰 크기에 맞춰 늘어나야 해서 src 가 아닌 background 로 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/img_qr_scan_frame"
+            android:backgroundTint="@color/primary" />
+    </FrameLayout>
+
+    <!-- 앱 안내 카드 -->
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.Maeum.Card.Notice.Info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        app:contentPaddingBottom="18dp"
+        app:contentPaddingLeft="20dp"
+        app:contentPaddingRight="20dp"
+        app:contentPaddingTop="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/img_logo_mark_large" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/Widget.Maeum.PosterText.Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/poster_app_title"
+                    android:textColor="@color/on_primary_container"
+                    android:textSize="22dp" />
+
+                <TextView
+                    style="@style/Widget.Maeum.PosterText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/poster_app_body"
+                    android:textColor="@color/on_primary_container"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 이용 방법 3단계 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText.Bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_tile"
+                android:backgroundTint="@color/primary"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/on_primary"
+                android:textSize="22dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/poster_step1_title"
+                android:textSize="20dp" />
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/poster_step1_body"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText.Bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_tile"
+                android:backgroundTint="@color/primary"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/on_primary"
+                android:textSize="22dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/poster_step2_title"
+                android:textSize="20dp" />
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/poster_step2_body"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText.Bold"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_icon_tile"
+                android:backgroundTint="@color/primary"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/on_primary"
+                android:textSize="22dp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                style="@style/Widget.Maeum.PosterText.Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/poster_step3_title"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/poster_step3_body"
+                style="@style/Widget.Maeum.PosterText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="16dp"
+                tools:text="3분 안에 와 주세요" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        style="@style/Widget.Maeum.PosterText"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="@color/surface_container"
+        android:gravity="center"
+        android:text="@string/poster_footer"
+        android:textColor="@color/on_surface_variant"
+        android:textSize="15dp" />
+</LinearLayout>

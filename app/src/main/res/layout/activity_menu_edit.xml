@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 대기열 만들기 2 / 3 에서 여는 메뉴 추가·수정 화면 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".owner.MenuEditActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/menu_edit_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_app_bar_height"
+        app:navigationContentDescription="@string/owner_close"
+        app:navigationIcon="@drawable/ic_close"
+        tools:title="@string/menu_edit_title_add" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_padding_horizontal"
+            android:paddingTop="8dp"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
+            android:paddingBottom="24dp">
+
+            <TextView
+                style="@style/Widget.Maeum.TextField.Label"
+                android:labelFor="@id/menu_edit_name"
+                android:text="@string/menu_edit_name_label" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu_edit_name_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="20">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/menu_edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/menu_edit_name_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/Widget.Maeum.TextField.Label"
+                android:layout_marginTop="16dp"
+                android:labelFor="@id/menu_edit_price"
+                android:text="@string/menu_edit_price_label" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:suffixText="@string/menu_edit_price_suffix">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/menu_edit_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/menu_edit_price_hint"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="7"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/Widget.Maeum.TextField.Label"
+                android:layout_marginTop="20dp"
+                android:text="@string/menu_edit_photo_label" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/menu_edit_photo_add"
+                    layout="@layout/item_photo_add" />
+
+                <include
+                    android:id="@+id/menu_edit_photo"
+                    layout="@layout/item_store_photo"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/menu_edit_representative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:minHeight="@dimen/touch_target_min"
+                android:text="@string/menu_edit_representative"
+                android:textAppearance="@style/TextAppearance.Maeum.TitleSmall" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/menu_edit_representative_helper"
+                android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+                android:textColor="@color/on_surface_variant" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_padding_horizontal">
+
+        <Button
+            android:id="@+id/menu_edit_save"
+            style="@style/Widget.Maeum.Button.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/menu_edit_save_add" />
+    </FrameLayout>
+
+</LinearLayout>

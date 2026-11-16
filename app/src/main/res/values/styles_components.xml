@@ -307,6 +307,24 @@
     </style>
 
     <!--
+        폼 아래 오류 문구 (경고 아이콘 + Body/Medium · error). 기본은 숨김, 오류가 나면 코드에서 보이게
+        <TextView android:id="@+id/..._error" style="@style/Widget.Maeum.ErrorText" />
+    -->
+    <style name="Widget.Maeum.ErrorText" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:accessibilityLiveRegion">polite</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawableStart">@drawable/ic_warning</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableTint">@color/error</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.Maeum.BodyMedium</item>
+        <item name="android:textColor">@color/error</item>
+    </style>
+
+    <!--
         Card (MaterialCardView) · 모서리 12dp · 안쪽 여백 16dp
         <com.google.android.material.card.MaterialCardView style="@style/Widget.Maeum.Card.Outlined" ...>
         Outlined: Queue Card(대기) · Notice Card(Neutral) · 추천 카드 · 메뉴 카드 · Stepper 바탕
@@ -365,6 +383,16 @@
     <!-- Error: 글자 on_error_container / 아이콘 error -->
     <style name="Widget.Maeum.Card.Notice.Error">
         <item name="cardBackgroundColor">@color/error_container</item>
+    </style>
+
+    <!--
+        사진 모서리 8dp (매장·메뉴 사진 썸네일)
+        <com.google.android.material.imageview.ShapeableImageView
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Maeum.Photo" ... />
+    -->
+    <style name="ShapeAppearance.Maeum.Photo" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius_md</item>
     </style>
 
     <!--

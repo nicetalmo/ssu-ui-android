@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.recyclerview)
     implementation(libs.naver.map.sdk)
+    implementation(libs.print)      // QR 포스터 인쇄 (PrintHelper)
+    implementation(libs.zxing.core) // QR 코드 만들기
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)

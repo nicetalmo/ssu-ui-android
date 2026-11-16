@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 대기열 만들기 2 / 3 · 메뉴 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".owner.StoreMenuActivity">
+
+    <include layout="@layout/view_store_step_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_padding_horizontal"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
+            android:paddingBottom="24dp">
+
+            <include layout="@layout/view_store_step_heading" />
+
+            <!-- 메뉴 카드(item_store_menu)는 코드에서 채움 -->
+            <LinearLayout
+                android:id="@+id/menu_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/menu_empty"
+                style="@style/Widget.Maeum.Card.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/menu_empty"
+                    android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+                    android:textColor="@color/on_surface_variant"
+                    app:drawableTint="@color/outline"
+                    app:drawableTopCompat="@drawable/ic_menu_book" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <Button
+                android:id="@+id/menu_add"
+                style="@style/Widget.Maeum.Button.Tonal.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_add"
+                app:icon="@drawable/ic_add" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_padding_horizontal">
+
+        <Button
+            android:id="@+id/menu_next"
+            style="@style/Widget.Maeum.Button.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/store_next" />
+    </FrameLayout>
+
+</LinearLayout>

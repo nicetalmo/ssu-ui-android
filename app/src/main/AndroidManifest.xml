@@ -30,6 +30,34 @@
             android:name=".map.MapActivity"
             android:exported="false" />
 
+        <!-- 사장님 화면: 로그인·회원가입 → 대기열 만들기 1~3단계(+ 메뉴 추가·수정) → QR 포스터 인쇄 -->
+        <activity
+            android:name=".owner.OwnerLoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".owner.OwnerSignUpActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".owner.StoreInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".owner.StoreMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".owner.MenuEditActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".owner.StoreSettingsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".owner.QrPosterActivity"
+            android:exported="false" />
+
 
         <meta-data
             android:name="com.naver.maps.map.NCP_KEY_ID"

@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
@@ -50,6 +51,11 @@ public class StoreManager {
         void onFailure(String message);
     }
 
+    public interface StoreCallback {
+        void onSuccess(DocumentSnapshot store);
+        void onFailure(String message);
+    }
+
     private static final List<Integer> ENTRY_LIMIT_OPTIONS = Arrays.asList(3, 5, 10);
 
     private static StoreManager instance;
@@ -75,6 +81,19 @@ public class StoreManager {
         // 지점 고유 아이디 가져오기 "storeId"를 통해 대기 관리 화면 이동
         db.collection("users").document(user.getUid()).get()
                 .addOnSuccessListener(snap -> callback.onResult(snap.getString("storeId")))
+                .addOnFailureListener(e -> callback.onFailure("매장 정보를 불러오지 못했어요."));
+    }
+
+    // -------------------------- 매장 정보 불러오기 (QR 포스터 등) --------------------------
+    public void getStore(String storeId, StoreCallback callback){
+        db.collection("stores").document(storeId).get()
+                .addOnSuccessListener(snap -> {
+                    if (!snap.exists()) {
+                        callback.onFailure("매장 정보를 찾지 못했어요.");
+                        return;
+                    }
+                    callback.onSuccess(snap);
+                })
                 .addOnFailureListener(e -> callback.onFailure("매장 정보를 불러오지 못했어요."));
     }
 

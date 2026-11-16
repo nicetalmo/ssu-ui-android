@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 대기열 만들기 단계 화면 공통 상단: 상단 바 + 단계 진행 막대 (StoreStepActivity 가 채움) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/step_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_app_bar_height"
+        app:navigationContentDescription="@string/owner_back"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/store_create_title" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/step_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:indicatorColor="@color/primary"
+        app:trackColor="@color/surface_container_high"
+        app:trackThickness="4dp" />
+</LinearLayout>

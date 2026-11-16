@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 대기열 만들기 단계 제목: "1 / 3" + 단계 이름 + 설명 (StoreStepActivity 가 채움) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/step_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Maeum.LabelSmall"
+        android:textColor="@color/primary"
+        tools:text="1 / 3" />
+
+    <TextView
+        android:id="@+id/step_heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:accessibilityHeading="true"
+        android:textAppearance="@style/TextAppearance.Maeum.HeadlineSmall"
+        tools:ignore="UnusedAttribute"
+        tools:text="매장 정보" />
+
+    <TextView
+        android:id="@+id/step_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+        android:textColor="@color/on_surface_variant"
+        tools:text="손님이 대기 등록할 때 보는 정보예요." />
+</LinearLayout>

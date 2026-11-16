@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        QR 포스터 글자 (view_qr_poster). 포스터는 화면에 붙이지 않고 비트맵으로 그려 인쇄하므로
+        기기 글자 크기 설정과 내려받는 글꼴(Noto Sans KR) 로딩을 타지 않게 dp 크기 + 시스템 sans-serif 를 씀.
+        테마 기본 TextView 스타일의 줄 높이(Body/Large 24sp)가 붙지 않도록 textAppearance 도 덮어씀.
+    -->
+    <style name="Widget.Maeum.PosterText" parent="">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/on_surface</item>
+    </style>
+
+    <style name="Widget.Maeum.PosterText.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

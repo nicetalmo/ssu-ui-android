@@ -19,7 +19,8 @@ import java.util.List;
  필드 기본값 전부 설정하기.
  */
 
-public class StoreDraft {
+// 대기열 만들기 단계 화면(Activity)끼리 Intent 로 주고받으려고 Serializable
+public class StoreDraft implements Serializable {
 
     // 매장 정보
     public String name;
@@ -35,7 +36,7 @@ public class StoreDraft {
     public int entryLimitMinutes;
     public String notice;
 
-    public static class Menu {
+    public static class Menu implements Serializable {
         public String name;
         public Integer price;
         public String photoUri;

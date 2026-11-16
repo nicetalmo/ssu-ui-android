@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".owner.OwnerSignUpActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/signup_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_app_bar_height"
+        app:navigationContentDescription="@string/owner_back"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/signup_title" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_padding_horizontal"
+            android:paddingTop="16dp"
+            android:paddingEnd="@dimen/screen_padding_horizontal"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:accessibilityHeading="true"
+                android:text="@string/signup_heading"
+                android:textAppearance="@style/TextAppearance.Maeum.HeadlineSmall"
+                tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/signup_description"
+                android:textAppearance="@style/TextAppearance.Maeum.BodyMedium"
+                android:textColor="@color/on_surface_variant" />
+
+            <TextView
+                style="@style/Widget.Maeum.TextField.Label"
+                android:layout_marginTop="32dp"
+                android:labelFor="@id/signup_id"
+                android:text="@string/login_id_label" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="@string/signup_id_helper">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="newUsername"
+                    android:hint="@string/login_id_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLength="12"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/Widget.Maeum.TextField.Label"
+                android:layout_marginTop="20dp"
+                android:labelFor="@id/signup_password"
+                android:text="@string/login_password_label" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="password_toggle"
+                app:helperText="@string/signup_password_helper">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="newPassword"
+                    android:hint="@string/login_password_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/Widget.Maeum.TextField.Label"
+                android:layout_marginTop="20dp"
+                android:labelFor="@id/signup_phone"
+                android:text="@string/signup_phone_label" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="@string/signup_phone_helper">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="phone"
+                    android:hint="@string/signup_phone_hint"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:maxLength="13"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/signup_error"
+                style="@style/Widget.Maeum.ErrorText"
+                android:layout_marginTop="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_padding_horizontal">
+
+        <Button
+            android:id="@+id/signup_submit"
+            style="@style/Widget.Maeum.Button.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_submit" />
+    </FrameLayout>
+
+</LinearLayout>
